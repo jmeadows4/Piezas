@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jmeadows4/Piezas.svg?branch=master)](https://travis-ci.org/jmeadows4/Piezas) [![Coverage Status](https://coveralls.io/repos/github/jmeadows4/Piezas/badge.svg?branch=master)](https://coveralls.io/github/jmeadows4/Piezas?branch=master)
 # Piezas
 
 ## Associated Enumerated Types
