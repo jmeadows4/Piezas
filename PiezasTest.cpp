@@ -85,17 +85,12 @@ TEST(PiezasTest, OverflowCol){
   Piece p = obj.dropPiece(0);
   ASSERT_TRUE(p == Blank);
 }
-TEST(PiezasTest, OverflowCol){
-  Piezas obj;
-  Piece p = obj.pieceAt(0, -1);
-  ASSERT_TRUE(p == Invalid);
-}
 TEST(PiezasTest, GameStateInvalid){
   Piezas obj;
-  obj.dropPiece(0, 0);
-  obj.dropPiece(1, 0);
-  obj.dropPiece(2, 0);
-  obj.dropPiece(3, 0);
+  obj.dropPiece(0);
+  obj.dropPiece(1);
+  obj.dropPiece(2);
+  obj.dropPiece(3);
   Piece p = obj.gameState();
   ASSERT_TRUE(p == Invalid);
 }
