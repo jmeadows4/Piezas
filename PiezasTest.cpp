@@ -106,7 +106,7 @@ TEST(PiezasTest, GameStateTieVertical){
     }
   }
   Piece p = obj.gameState();
-  ASSERT_TRUE(p == Blank)
+  ASSERT_TRUE(p == Blank);
 }
 //makes a board of:
 // X X X X
@@ -121,5 +121,5 @@ TEST(PiezasTest, GameStateTieVertical){
     }
   }
   Piece p = obj.gameState();
-  ASSERT_TRUE(p == Blank)
+  ASSERT_TRUE(p == Blank);
 }
