@@ -36,7 +36,7 @@ TEST(PiezasTest, checkConstructor)
   }
   ASSERT_TRUE(all_blanks);
 }
-TEST(PiezasTest, reset_with_prev_vals)
+TEST(PiezasTest, resetWithPrevVals)
 {
   Piezas obj;
   obj.dropPiece(0);
@@ -58,7 +58,7 @@ TEST(PiezasTest, dropSingle){
   obj.dropPiece(0);
   ASSERT_TRUE(obj.pieceAt(0,0) == X);
 }
-TEST(PiezasTest, dropSameRow){
+TEST(PiezasTest, dropSameCol){
   Piezas obj;
   obj.dropPiece(0);
   obj.dropPiece(0);
@@ -66,4 +66,22 @@ TEST(PiezasTest, dropSameRow){
   ASSERT_TRUE(obj.pieceAt(0,0) == X
            && obj.pieceAt(1, 0) == O
            && obj.pieceAt(2, 0) == X );
+}
+TEST(PiezasTest, dropOutOfBoundsNeg){
+  Piezas obj;
+  Piece p = obj.dropPiece(-1);
+  ASSERT_TRUE(p == Invalid);
+}
+TEST(PiezasTest, dropOutOfBoundsPos){
+  Piezas obj;
+  Piece p = obj.dropPiece(BOARD_COLS);
+  ASSERT_TRUE(p == Invalid);
+}
+TEST(PiezasTest, OverflowCol){
+  Piezas obj;
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  Piece p = obj.dropPiece(0);
+  ASSERT_TRUE(p == Blank);
 }
