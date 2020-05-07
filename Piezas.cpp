@@ -138,7 +138,7 @@ Piece Piezas::gameState()
         cur_x += 1;
         cur_o = 0;
       }
-      else if(pieceAt(i, j) == O){
+      else if(pieceAt(j, i) == O){
         cur_o += 1;
         cur_x = 0;
       }
