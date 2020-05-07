@@ -53,3 +53,17 @@ TEST(PiezasTest, reset_with_prev_vals)
   }
   ASSERT_TRUE(all_blanks);
 }
+TEST(PiezasTest, dropSingle){
+  Piezas obj;
+  obj.dropPiece(0);
+  ASSERT_TRUE(obj.pieceAt(0,0) == X);
+}
+TEST(PiezasTest, dropSameRow){
+  Piezas obj;
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  ASSERT_TRUE(obj.pieceAt(0,0) == X
+           && obj.pieceAt(1, 0) == O
+           && obj.pieceAt(2, 0) == X );
+}

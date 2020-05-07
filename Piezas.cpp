@@ -53,19 +53,24 @@ void Piezas::reset()
 Piece Piezas::dropPiece(int column)
 {
     if(column >= 0 && column < BOARD_COLS){
-      if(turn == X){ turn = O;}
-      else{ turn = X;}
+
       //check from 0 to BOARD_ROWS. Even though row values are flipped, we still
       //want to start at the 0th row
       for(int i = 0; i < BOARD_ROWS; i++){
         //change this to pieceAt?
         if(board[i][column] == Blank){
           board[i][column] = turn;
+          if(turn == X){ turn = O;}
+          else{ turn = X;}
           return turn;
         }
       }
+      if(turn == X){ turn = O;}
+      else{ turn = X;}
       return Blank;
     }
+    if(turn == X){ turn = O;}
+    else{ turn = X;}
     return Invalid;
 }
 
