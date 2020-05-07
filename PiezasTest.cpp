@@ -77,6 +77,12 @@ TEST(PiezasTest, dropOutOfBoundsPos){
   Piece p = obj.dropPiece(BOARD_COLS);
   ASSERT_TRUE(p == Invalid);
 }
+TEST(PiezasTest, dropOutOfBoundsOTurn){
+  Piezas obj;
+  obj.dropPiece(0);
+  Piece p = obj.dropPiece(BOARD_COLS);
+  ASSERT_TRUE(p == Invalid);
+}
 TEST(PiezasTest, OverflowCol){
   Piezas obj;
   obj.dropPiece(0);
@@ -147,7 +153,6 @@ TEST(PiezasTest, XWins){
   obj.dropPiece(2);//X
   obj.dropPiece(3);//O
 
-
   Piece p = obj.gameState();
   ASSERT_TRUE(p == X);
 }
@@ -168,7 +173,6 @@ TEST(PiezasTest, OWins){
   obj.dropPiece(3);//O
   obj.dropPiece(2);//X
   obj.dropPiece(3);//O
-
 
   Piece p = obj.gameState();
   ASSERT_TRUE(p == O);
@@ -194,6 +198,9 @@ TEST(PiezasTest, VerticalWin){
   Piece p = obj.gameState();
   ASSERT_TRUE(p == X);
 }
+// X X O X
+// X O O X
+// X O X O
 TEST(PiezasTest, BadMoveWin){
   Piezas obj;
   obj.dropPiece(0);//X
