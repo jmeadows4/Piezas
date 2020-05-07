@@ -94,3 +94,32 @@ TEST(PiezasTest, GameStateInvalid){
   Piece p = obj.gameState();
   ASSERT_TRUE(p == Invalid);
 }
+//makes a board of:
+// X O X O
+// X O X O
+// X O X O
+TEST(PiezasTest, GameStateTieVertical){
+  Piezas obj;
+  for(int i = 0; i < BOARD_ROWS; i++){
+    for(int j = 0; j < BOARD_COLS; j++){
+      obj.dropPiece(j);
+    }
+  }
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == Blank)
+}
+//makes a board of:
+// X X X X
+// O O O O
+// X X X X
+// O O O O
+TEST(PiezasTest, GameStateTieVertical){
+  Piezas obj;
+  for(int i = 0; i < BOARD_COLS; i++){
+    for(int j = 0; j < BOARD_ROWS; j++){
+      obj.dropPiece(i);
+    }
+  }
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == Blank)
+}
