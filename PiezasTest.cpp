@@ -24,7 +24,7 @@ TEST(PiezasTest, checkConstructor)
   bool all_blanks = true;
   for(int i = 0; i < BOARD_ROWS; i++){
     for(int j = 0; j < BOARD_COLS; j++){
-      if(board[i][j] != Blank){
+      if(obj.pieceAt(i, j) != Blank){
         all_blanks = false;
         break;
       }
