@@ -113,7 +113,7 @@ TEST(PiezasTest, GameStateTieVertical){
 // O O O O
 // X X X X
 // O O O O
-TEST(PiezasTest, GameStateTieVertical){
+TEST(PiezasTest, GameStateTieHorizontal){
   Piezas obj;
   for(int i = 0; i < BOARD_COLS; i++){
     for(int j = 0; j < BOARD_ROWS; j++){
