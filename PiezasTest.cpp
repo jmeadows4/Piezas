@@ -173,3 +173,43 @@ TEST(PiezasTest, OWins){
   Piece p = obj.gameState();
   ASSERT_TRUE(p == O);
 }
+// X X O O
+// X O O X
+// X O X O
+TEST(PiezasTest, VerticalWin){
+  Piezas obj;
+  obj.dropPiece(0);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(0);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(3);//X
+  obj.dropPiece(2);//O
+  obj.dropPiece(0);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(1);//X
+  obj.dropPiece(2);//O
+
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == X);
+}
+TEST(PiezasTest, BadMoveWin){
+  Piezas obj;
+  obj.dropPiece(0);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(0);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(3);//X
+  obj.dropPiece(2);//O
+  obj.dropPiece(0);//X
+  obj.dropPiece(0);//O, bad move
+  obj.dropPiece(1);//X
+  obj.dropPiece(2);//O
+  obj.dropPiece(3);//X
+
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == X);
+}
