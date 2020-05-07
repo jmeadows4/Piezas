@@ -94,6 +94,12 @@ TEST(PiezasTest, GameStateInvalid){
   Piece p = obj.gameState();
   ASSERT_TRUE(p == Invalid);
 }
+TEST(PiezasTest, pieceAtOutOfBoundsNeg){
+  Piezas obj;
+  Piece p = obj.pieceAt(0, -1);
+  ASSERT_TRUE(p == Invalid);
+}
+
 //makes a board of:
 // X O X O
 // X O X O
@@ -112,7 +118,6 @@ TEST(PiezasTest, GameStateTieVertical){
 // X X X X
 // O O O O
 // X X X X
-// O O O O
 TEST(PiezasTest, GameStateTieHorizontal){
   Piezas obj;
   for(int i = 0; i < BOARD_COLS; i++){
@@ -122,4 +127,49 @@ TEST(PiezasTest, GameStateTieHorizontal){
   }
   Piece p = obj.gameState();
   ASSERT_TRUE(p == Blank);
+}
+//makes a board of:
+// O O X O
+// O O X O
+// X X X X
+TEST(PiezasTest, XWins){
+  Piezas obj;
+  obj.dropPiece(0);//X
+  obj.dropPiece(0);//O
+  obj.dropPiece(1);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(0);//O
+  obj.dropPiece(3);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(3);//O
+
+
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == X);
+}
+// X X X O
+// O O O O
+// X X X O
+TEST(PiezasTest, OWins){
+  Piezas obj;
+  obj.dropPiece(0);//X
+  obj.dropPiece(0);//O
+  obj.dropPiece(1);//X
+  obj.dropPiece(1);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(2);//O
+  obj.dropPiece(0);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(1);//X
+  obj.dropPiece(3);//O
+  obj.dropPiece(2);//X
+  obj.dropPiece(3);//O
+
+
+  Piece p = obj.gameState();
+  ASSERT_TRUE(p == O);
 }
