@@ -57,18 +57,20 @@ Piece Piezas::dropPiece(int column)
       //check from 0 to BOARD_ROWS. Even though row values are flipped, we still
       //want to start at the 0th row
       for(int i = 0; i < BOARD_ROWS; i++){
-        //change this to pieceAt?
-        if(board[i][column] == Blank){
+        //if we find an open column
+        if(pieceAt(i, column) == Blank){
           board[i][column] = turn;
           if(turn == X){ turn = O;}
           else{ turn = X;}
           return turn;
         }
       }
+      //if we get here, the row column was full
       if(turn == X){ turn = O;}
       else{ turn = X;}
       return Blank;
     }
+    //if we get here, the column was invalid
     if(turn == X){ turn = O;}
     else{ turn = X;}
     return Invalid;
@@ -129,6 +131,7 @@ Piece Piezas::gameState()
     cur_x = 0;
     cur_o = 0;
   }
+
   cur_x = 0;
   cur_o = 0;
   //check for longest string of X's and O's by col

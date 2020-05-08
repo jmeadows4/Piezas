@@ -77,7 +77,7 @@ TEST(PiezasTest, dropOutOfBoundsPos){
   Piece p = obj.dropPiece(BOARD_COLS);
   ASSERT_TRUE(p == Invalid);
 }
-TEST(PiezasTest, dropOutOfBoundsOTurn){
+TEST(PiezasTest, dropOutOfBoundsO){
   Piezas obj;
   obj.dropPiece(0);
   Piece p = obj.dropPiece(BOARD_COLS);
